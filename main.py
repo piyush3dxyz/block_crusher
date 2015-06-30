@@ -5,12 +5,10 @@ blk=pygame.image.load('block.bmp')    #load blocks image
 img=pygame.image.load('back.bmp')     #load background image
 thung=pygame.image.load('thung.bmp')  #load player image
 gameover=pygame.image.load('go.bmp')
-mas=pygame.image.load('masthead.bmp')
-soundObj = pygame.mixer.Sound('wall.wav')
-back=pygame.mixer.music.load('background.mid')
+mas=pygame.image.load('masthead.bmp') #footer 
+soundObj = pygame.mixer.Sound('wall.wav') #wall colliding sound
+back=pygame.mixer.music.load('background.mid') #theme_music
 global windowSurface
-
-
 windowSurface = pygame.display.set_mode((600, 462), 0, 32)
 pygame.display.set_caption('Simple breakout game by piyush')
 
@@ -22,8 +20,6 @@ class pool():
     trig=0
     block=[]
     pigger=0
-    
-    
     def trigger(self):
         self.trig=1
         
@@ -58,11 +54,6 @@ class pool():
                 self.diry='up'
                 self.x=250
                 self.y=250
-                
-               
-                                
-                
-                
     def drawball(self,surface):
         pygame.draw.circle(surface,(200,100,230),(self.x,self.y),13,0)
 
@@ -75,25 +66,8 @@ class pool():
                               surface.blit(blk,blocks)
 
         
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def play():
+    
+def play(): #main game play function
     pygame.mixer.music.play(-1, 0.0)    
     
     ball1=pool() 
@@ -108,15 +82,6 @@ def play():
             size=i*75
             ball1.block.append(pygame.Rect(size,100,40,40))
             
-
-
-
-
-   
-    
-    
-   
-  
     ball1.x=400
     ball1.y=200
     ball1.dirx='left'
@@ -126,23 +91,6 @@ def play():
     a=300
     b=349
     
-    
- 
-    
-    
-   
-
-
-    
-   
-    
-
-
-
-
-
-    
-   
     while True:
         windowSurface.fill((25,25,25))
         
@@ -184,13 +132,8 @@ def play():
             if ball.colliderect(blok):
                 ball1.block.remove(blok)
         
-        
-
-      
+    
         pygame.display.update()
         
-    
-    
-   
 
 play()
